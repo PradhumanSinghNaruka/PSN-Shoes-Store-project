@@ -3,7 +3,7 @@ import React from 'react';
 function Banner() {
   return (
     <>
-        <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col md:flex-row">
+        <div name="Home" className="max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col md:flex-row">
             <div className="order-2 md:order-1 w-full md:w-1/2 mt-10 md:mt-32">
               <div className="space-y-10">
                 <h1 className="text-5xl font-bold">Step Up Your Game with <br/>

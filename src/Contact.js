@@ -46,8 +46,8 @@ function Contact() {
       });
 };
   return (
-    <div>
-      <dialog id="my_modal_4" className="modal">
+    <div name="Contact" className="">
+      <dialog name="Contact" id="my_modal_4" className="modal">
             <div className="modal-box w-11/12 max-w-5xl">
                 <h3 className="font-bold text-lg text-violet-800">Contact Form</h3>
                 <form onSubmit={handleSubmit(onSubmit)}>

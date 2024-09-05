@@ -5,6 +5,7 @@ import Cards from './Cards';
 import Footer from './Footer';
 import Women from './Women';
 import Video from './Video';
+import Cards2 from './Cards2';
 
 function Home() {
   return (
@@ -12,6 +13,7 @@ function Home() {
         <Navbar />
         <Banner />
         <Cards />
+        <Cards2 />
         <Women />
         <Video />
         <Footer />

@@ -5,6 +5,9 @@ import Logout from './Logout';
 import Contact from './Contact';
 import Pradhuman from './Pradhuman';
 import { useAuth } from './context/AuthProvider';
+import {Link} from "react-scroll";
+import { CiMenuFries } from "react-icons/ci";
+import { IoCloseSharp } from "react-icons/io5";
 
 function Navbar() {
   const [authUser, setAuthUser] = useAuth();
@@ -36,11 +39,34 @@ function Navbar() {
   //   } ;
   // }
   
-    let Links =[
-        {name:"Home",link:"/"},
-        {name:"Men",link:"/"},
-        {name:"Women",link:"/"},
-        {name:"About",link:"/"}
+    // let Links =[
+    //     {name:"Home",link:"/"},
+    //     {name:"Men",link:"/"},
+    //     {name:"Women",link:"/"},
+    //     {name:"About",link:"/"}
+    // ]
+    const [menu , setMenu]=useState(false);
+    const navItems = [
+      {
+        id: 1,
+        text: "Home",
+      },
+      {
+        id: 2,
+        text: "Men",
+      },
+      {
+        id: 3,
+        text: "Women",
+      },
+      {
+        id: 4,
+        text: "Contact",
+      },
+      {
+        id: 5,
+        text: "About",
+      },
     ]
   return(
     <>
@@ -48,47 +74,38 @@ function Navbar() {
             <div>
             <div className="navbar bg-base-100">
   <div className="navbar-start">
-    <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M4 6h16M4 12h8m-8 6h16" />
-        </svg>
-      </div>
-      <ul
-        tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        <li><a href='/'>Home</a></li>
-        <li><a href='/Card'>Men</a></li>
-        <li><a href='/women'>Women</a></li>
-        <li><a >Contact</a></li>
-        <li><a href='/footer'>About</a></li>
-        </ul>
-    </div>
-    <a className="btn btn-ghost text-xl"onClick={()=>document.getElementById("my_modal_2").showModal()}>shoesSTORE</a>
-    <Pradhuman />
+    <div className="flex justify-between items-center h-16">
+      <div onClick={()=>setMenu(!menu)} className="md:hidden"> 
+          {menu?<IoCloseSharp size={24} />:<CiMenuFries size={24} />
+          }</div>
+                <div className="flex space-x-2">
+                  <a className="btn btn-ghost text-xl"onClick={()=>document.getElementById("my_modal_2").showModal()}>shoesSTORE</a>
+                  <Pradhuman />
+                </div>
+                <div>
+                    <ul className="hidden md:flex space-x-8 ml-24 font-semibold text-xl">
+                    {navItems.map(({ id, text }) => (
+                <li
+                  className="hover:scale-105 duration-200 hover:text-purple-500 duration-300 cursor-pointer"
+                  key={id}
+                >
+                  <Link
+                    to={text}
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    activeClass="active"
+                  >
+                    {text}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+                    
+                </div>
+            </div>
   </div>
   <div className="navbar-end space-x-4">
-  <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-      <li><a href='/'>Home</a></li>
-      <li><a href='/Card'>Men</a></li>
-      <li><a href='/women'>Women</a></li>
-      <li><a onClick={()=>document.getElementById("my_modal_4").showModal()}>
-        Contact</a>
-        <Contact />
-        </li>
-      <li><a href='/footer'>About</a></li>
-    </ul>
-  </div>
   <div className="hidden md:block">
   <label className="input input-bordered border-black-500 shadow-violet-500 flex items-center gap-2">
   <input type="text" className="grow" placeholder="Search" />
@@ -110,7 +127,7 @@ function Navbar() {
 
   {/* sun icon */}
   <svg
-    className="swap-off h-7 w-7 fill-current"
+    className="swap-off h-7 w-7 mr-2 md:mr-0 fill-current"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24">
     onClick={()=>setTheme(theme === "light"?"dark":"light")}
@@ -132,7 +149,7 @@ function Navbar() {
     authUser? (<Logout/>):
     (
       <div className="">
-    <a className="bg-black text-white px-4 py-3 rounded-md hover:bg-violet-700 rounded transition duration-500"
+    <a className="bg-black text-white px-4 py-3 mr-2 md:mr-0 rounded-md hover:bg-violet-700 rounded transition duration-500"
     onClick={()=>document.getElementById("my_modal_1").showModal()}>
       Login</a>
       <Login />
@@ -140,6 +157,31 @@ function Navbar() {
     )}
 </div>
 </div>
+
+
+{menu && (
+          <div className="bg-white">
+            <ul className="md:hidden flex flex-col h-screen items-center justify-center space-y-3 text-xl">
+              {navItems.map(({ id, text }) => (
+                <li
+                  className="hover:scale-105 duration-200 hover:text-green-500 duration-300 font-semibold cursor-pointer"
+                  key={id}
+                >
+                  <Link
+                    onClick={() => setMenu(!menu)}
+                    to={text}
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    activeClass="active"
+                  >
+                    {text}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
             </div>
         </div>
     </>
