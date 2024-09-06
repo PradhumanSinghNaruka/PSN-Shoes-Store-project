@@ -57,7 +57,7 @@ function Navbar() {
       },
       {
         id: 3,
-        text: "Women",
+        text: "Premium",
       },
       {
         id: 4,

@@ -6,6 +6,9 @@ import Footer from './Footer';
 import Women from './Women';
 import Video from './Video';
 import Cards2 from './Cards2';
+import Contact from './Contact';
+import Women2 from './Women2';
+import Payment from './Payment';
 
 function Home() {
   return (
@@ -15,6 +18,8 @@ function Home() {
         <Cards />
         <Cards2 />
         <Women />
+        <Women2 />
+        <Contact />
         <Video />
         <Footer />
     </>

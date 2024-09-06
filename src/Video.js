@@ -13,11 +13,11 @@ const Video = () => {
                   </div>
                 </div>
             </div> */}
-            <div className='relative w-full h-screen md:w-1/2 md:h-screen overflow-hidden mt-32'>
+            <div className='relative w-full h-screen md:w-1/2 md:h-screen overflow-hidden mt-6 md:mt-32'>
               <iframe className='absolute top-0 left-0 w-full h-full border-0 mt-10'  src='https://player.vimeo.com/video/974359523?badge=0&autopause=0&autoplay=1&loop=1&player_id=0&app_id=58479&background=1&muted=1' allow="autoplay; fullscreen">
               </iframe>
             </div>
-            <div className='w-full md:w-1/2 mt-32'>
+            <div className='w-full md:w-1/2 mt-4 md:mt-32'>
               <h2 className='text-4xl mt-10'>Embark on a therapeutic & recovery journey towards relief:</h2>
               <button className='mt-12 border-2 border-gray-800 bg-gray-800 text-white h-14 w-80 rounded-md hover:bg-white hover:text-gray-800 duration-300'> PSN-SHOES® Technology</button>
               <div className='mt-12 flex items-center'>

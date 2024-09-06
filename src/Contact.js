@@ -46,13 +46,12 @@ function Contact() {
       });
 };
   return (
-    <div name="Contact" className="">
-      <dialog name="Contact" id="my_modal_4" className="modal">
-            <div className="modal-box w-11/12 max-w-5xl">
-                <h3 className="font-bold text-lg text-violet-800">Contact Form</h3>
+    <div name="Contact" className="max-w-screen-2xl container mx-auto md:px-20 px-4 dark:bg-slate-900 dark:text-white">
+            <div className="max-w-5xl md:mt-24 ml-4 md:ml-96">
+                <h3 className="font-semibold mt-8 md:mt-12 text-4xl md:text-6xl text-black">Contact Form</h3>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                <div className='mt-6 space-y-2'>
-                        <span>Name</span>
+                <div className='mt-6 space-y-2 mt-14'>
+                        <span className="text-xl text-violet-800">Name</span>
                         <br/>
                         <input type="fullname"
                         placeholder='Enter Your Full Name' className='w-80 px-3 border rounded-md outline-none py-1'
@@ -61,7 +60,7 @@ function Contact() {
                         {errors.email && <span className='text-sm text-red-500'>This field is required</span>}
                     </div>
                     <div className='mt-6 space-y-2'>
-                        <span>Phone Number</span>
+                        <span className="text-xl text-violet-800">Phone Number</span>
                         <br/>
                         <input type="number"
                         placeholder='Enter Your Phone Number' className='w-80 px-3 border rounded-md outline-none py-1'
@@ -70,7 +69,7 @@ function Contact() {
                         {errors.number && <span className='text-sm text-red-500'>This field is required</span>}
                     </div>
                     <div className='mt-6 space-y-2'>
-                        <span>Email</span>
+                        <span className="text-xl text-violet-800">Email</span>
                         <br/>
                         <input type="email"
                         placeholder='Enter Your Email' className='w-80 px-3 border rounded-md outline-none py-1'
@@ -78,17 +77,12 @@ function Contact() {
                         <br/>
                         {errors.email && <span className='text-sm text-red-500'>This field is required</span>}
                     </div>
-                    <p className='text-md mt-10'>My Contact Number is: <span className='underline text-blue-800' >8107773336</span></p>
+                    <p className='text-md mt-10 text-violet-800'>My Contact Number is: <span className='underline text-red-700' >810******6</span></p>
                     <button className='btn mt-10 ml-6 bg-violet-800 text-white hover:bg-white hover:text-violet-800 duration-300'>Submit</button>
-                <div className="modal-action">
-                    <form method="dialog">
-                        {/* if there is a button, it will close the modal */}
-                        <button className="btn">Close</button>
-                    </form>
-                </div>
+                
                 </form>
             </div>
-        </dialog>
+
     </div>
   )
 }

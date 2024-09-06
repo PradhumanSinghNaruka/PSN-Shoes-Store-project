@@ -8,7 +8,7 @@ function Cards() {
   return (
     <>
         <h1 name="Men" className='mx-auto md:px-20 px-4 mt-12 md:mt-16 flex gap-20 text-black-700 text-4xl md:text-8xl items-center justify-center'>MEN  SHOES</h1>
-    <div className="md:max-w-screen-2xl container mx-auto px-4 md:px-20 bg-white mt-32 grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="md:max-w-screen-2xl container mx-auto px-4 md:px-20 bg-white mt-12 md:mt-32 grid grid-cols-1 md:grid-cols-3 gap-4">
     <div className="card card-compact bg-gray-100 w-full md:w-96 shadow-xl">
         <div className="card-body text-center">
             <img src={shoes1} className="rounded-full w-[320px] h-[320px] mx-auto" alt="Nike Shoes"/>
