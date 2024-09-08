@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import userRoute from "./route/user.route.js";
 import contactRoute from "./route/contact.route.js";
+import buyRoute from "./route/buy.route.js"
 
 const app = express();
 
@@ -12,10 +13,11 @@ app.use(express.json());
 
 dotenv.config();
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4001;
 const URI = process.env.MongoDBURI;
 
 // connect to mongoDB
+const startServer = async () => {
 try {
     await mongoose.connect(URI, {
         useNewUrlParser: true,
@@ -23,14 +25,19 @@ try {
         serverSelectionTimeoutMS: 30000 
     });
     console.log("Connected to mongoDB");
-} catch (error) {
-    console.log("Error: ", error);
-}
+
 
 // defining routes
 app.use("/user", userRoute);
 app.use("/contact", contactRoute);
+app.use("/buy", buyRoute);
 
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
 });
+} catch (error) {
+    console.log('Error: ', error);
+}
+};
+
+startServer();
